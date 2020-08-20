@@ -1,0 +1,37 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+<title>Foodfy - Home</title>
+{% endblock %}
+
+{% block content %}
+<section class="banner">
+    <div class="bannerText">
+        <h1>
+            As melhores receitas
+        </h1>
+        <p>
+            Aprenda a construir os melhores pratos com receitas criadas por profissionais do mundo inteiro.
+        </p>
+    </div>
+    <div class="bannerImg">
+        <img src="/assets/chef.png" alt="Chefe">
+    </div>                
+</section>
+<h1>
+    Mais acessadas
+</h1>
+    <section class="cards">
+        {% for item in items %}
+            <div class="card" id="{{item.id}}">
+                <img src="{{item.image}}" alt="{{item.title}}">
+                <h1 class="recipeName">
+                {{item.title}}
+                </h1>
+                <p class="recipeBy">
+                {{item.author}}
+                </p>
+            </div>
+        {% endfor %}
+    </section>
+{% endblock %}
